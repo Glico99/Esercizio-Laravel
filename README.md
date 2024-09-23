@@ -31,4 +31,4 @@ L'esercizio mostra l'utilizzo dell'ORM Laravel Eloquent per eseguire le operazio
 - `resources/views` -> Parte front-end del progetto
 - `routes/web.php` -> File contenente le routes del progetto
 
-# Template del progetto realizzato sull'esempio di YeloCode(https://github.com/yelocode/bootstrap5-twitter-clone-template.git)
+### Template del progetto realizzato sull'esempio di YeloCode(https://github.com/yelocode/bootstrap5-twitter-clone-template.git)
