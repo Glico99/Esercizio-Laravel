@@ -3,7 +3,7 @@
 @endguest
 @auth
     <h4> Share yours ideas </h4>
-    <form action="{{ route('shareIdea') }}" method="post">
+    <form action="{{ route('shareIdea') }}" method="post" id="ideaform">
         @csrf
         <div class="row">
             <div class="mb-3">
