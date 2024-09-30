@@ -28,10 +28,10 @@
                         @method('put')
                         <div class="row">
                             <div class="mb-3">
-                                <textarea class="form-control" name="updated" id="idea" rows="3"></textarea>
+                                <input type="text" class="form-control" name="updated" id="idea" rows="3"></input>
                             </div>
                             <div class="">
-                                <button class="btn btn-dark"> Update </button>
+                                <input type="submit" class="btn btn-dark" value="Update"><input>
                             </div>
                         </div>
                     </form>

@@ -7,10 +7,10 @@
         @csrf
         <div class="row">
             <div class="mb-3">
-                <textarea class="form-control" name="idea" id="idea" rows="3"></textarea>
+                <input type="text" class="form-control" name="idea" id="idea" rows="3"></input>
             </div>
             <div class="">
-                <button class="btn btn-dark"> Share </button>
+                <input type="submit" class="btn btn-dark" value="Share"></input>
             </div>
         </div>
     </form>

@@ -2,10 +2,10 @@
     <form action="{{ route('shareComment', $idea->id) }}" method="post">
         @csrf
         <div class="mb-3">
-            <textarea class="fs-6 form-control" name="comment" rows="1"></textarea>
+            <input type="text" class="fs-6 form-control" name="comment" rows="1"></input>
         </div>
         <div>
-            <button class="btn btn-primary btn-sm"> Post Comment </button>
+            <input type="submit" class="btn btn-primary btn-sm" value="Post Comment"></input>
         </div>
     </form>
 @endauth
