@@ -6,7 +6,7 @@
                      <div class="d-flex align-items-center">
                          <img style="width:50px" class="me-2 avatar-sm rounded-circle"
                              src="{{ $idea->user->getImageUrl() }}"
-                             alt="Mario Avatar">
+                             alt="{{$username = $idea->user->name . " avatar"}}">
                          <div>
                              <h5 class="card-title mb-0"><a href="{{ route('showProfile',$idea->user->id) }}"> {{ $idea->user->name }}</a></h5>
                          </div>

@@ -16,21 +16,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'image', 'bio'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * Get the attributes that should be cast.
@@ -55,11 +48,12 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
-    public function getImageUrl(){
-        if($this->image){
-            return url('storage/'.$this->image);
+    public function getImageUrl()
+    {
+        if ($this->image) {
+            return url('storage/' . $this->image);
         }
 
-        return 'https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->name}';
+        return "https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->name}";
     }
 }

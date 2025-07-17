@@ -6,10 +6,11 @@
             <div class="px-3 pt-4 pb-2">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
-                        <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                            src="{{$idea->user->getImageUrl()}}" alt="Mario Avatar">
+                        <img style="width:50px" class="me-2 avatar-sm rounded-circle" src="{{ $idea->user->getImageUrl() }}"
+                            alt="{{ $username = $idea->user->name . ' avatar' }}">
                         <div>
-                            <h5 class="card-title mb-0"><a href="{{ route('showProfile',$idea->user->id) }}"> {{ $idea->user->name }}
+                            <h5 class="card-title mb-0"><a href="{{ route('showProfile', $idea->user->id) }}">
+                                    {{ $idea->user->name }}
                                 </a></h5>
                         </div>
                     </div>
@@ -28,7 +29,8 @@
                         @method('put')
                         <div class="row">
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="updated" id="idea" rows="3"></input>
+                                <input type="text" class="form-control" name="updated" id="idea"
+                                    rows="3"></input>
                             </div>
                             <div class="">
                                 <input type="submit" class="btn btn-dark" value="Update"><input>
@@ -50,9 +52,7 @@
                             {{ $idea->created_at }} </span>
                     </div>
                 </div>
-                @if (!$editing)
-                    @include('comments.comments')
-                @endif
+                @include('comments.comments')
             </div>
         </div>
     </div>

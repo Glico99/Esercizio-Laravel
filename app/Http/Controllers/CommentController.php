@@ -11,9 +11,10 @@ class CommentController extends Controller
     public function share(Idea $id){
         $validated = request()->validate([
             'comment' => 'required|min:1|max:250',
-            'idea_id' => $id->id,
-            'user_id' => auth()->user()->id
         ]);
+
+        $validated["idea_id"] = $id->id;
+        $validated["user_id"] = auth()->user()->id;
 
         $comments = Comment::create([
             'content' => $validated['comment'],
