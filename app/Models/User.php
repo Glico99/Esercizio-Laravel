@@ -48,6 +48,18 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
+    public function followings(){
+        return $this->belongsToMany(User::class, "follower_user", "follower_id", "user_id")->withTimestamps();
+    }
+
+    public function followers(){
+        return $this->belongsToMany(User::class, "follower_user", "user_id", "follower_id")->withTimestamps();
+    }
+
+    public function follows(User $id){
+        return $this->followings()->contains($id);
+    }
+
     public function getImageUrl()
     {
         if ($this->image) {

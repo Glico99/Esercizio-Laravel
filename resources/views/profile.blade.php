@@ -1,12 +1,13 @@
 @extends('shared.layout')
 @section('content')
+    @include("dashboard.flashMsg")
     <h1 style="text-align:center">My Profile:</h1>
     <div class="card mx-5">
         <div class="px-3 pt-4 pb-2">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
-                    <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-                        src="{{$user->getImageUrl()}}" alt="{{$username = $user->name . " avatar"}}">
+                    <img style="width:150px" class="me-3 avatar-sm rounded-circle" src="{{ $user->getImageUrl() }}"
+                        alt="{{ $username = $user->name . ' avatar' }}">
                     <div>
                         <h3 class="card-title mb-0"><a href="#"> {{ $user->name }}
                             </a></h3>
@@ -35,7 +36,18 @@
                 </div>
                 @if (Auth::user()->id !== $user->id)
                     <div class="mt-3">
-                        <button class="btn btn-primary btn-sm"> Follow </button>
+                        @if(Auth::user()->follows($user))
+                        <form action="{{ route('unfollowUser', $user->id) }}" method="post">
+                            @csrf
+                            @method("delete")
+                            <button type="submit" class="btn btn-primary btn-sm btn-danger"> Unfollow </button>
+                        </form>
+                        @else
+                        <form action="{{ route('followUser', $user->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-sm"> Follow </button>
+                        </form>
+                        @endif
                     </div>
                 @endif
             </div>

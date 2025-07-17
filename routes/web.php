@@ -33,4 +33,6 @@ Route::prefix('profile/')->group(function(){
     Route::get('{id}/profile', [UserController::class, 'show'])->name('showProfile');
     Route::get('{id}/edit', [UserController::class, 'edit'])->name('editProfile');
     Route::put('{id}/update', [UserController::class, 'update'])->name('updateProfile');
+    Route::post('follow/{id}/user', [UserController::class, 'follow'])->name('followUser');
+    Route::delete('unfollow/{id}/user', [UserController::class, 'unfollow'])->name('unfollowUser');
 });

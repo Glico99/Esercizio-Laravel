@@ -26,11 +26,26 @@ class UserController extends Controller
         if(request()->has('image')){
             $imagePath = request()->file('image')->store('profile', 'public');
             $validated['image'] = $imagePath;
-            Storage::disk('public')->delete($id->image);
+            Storage::disk('public')->delete($id->image ?? '');
         }
 
         $id->update($validated);
 
         return view('profile',['user'=>$id]);
+    }
+
+    public function follow(User $id){
+        $follower = auth()->user();
+
+        $follower->followings()->attach($id);
+
+        return redirect()->back()->with('success', "User followed successfully");
+    }
+    public function unfollow(User $id){
+        $follower = auth()->user();
+
+        $follower->followings()->detach($id);
+
+        return redirect()->back()->with('success', "User unfollowed successfully");
     }
 }
